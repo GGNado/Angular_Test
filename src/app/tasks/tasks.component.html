@@ -1,0 +1,19 @@
+<section id="tasks">
+    <header>
+        <h2>{{ name() }}' Tasks</h2>
+        <menu>
+            <button (click)="onAddTask()">{{ buttonName }}</button>
+        </menu>
+    </header>
+    <ul>
+        @if(needAdd){
+            <app-new-task [buttonName]="'Add Task'" (closeWindows) = "onCloseForm()" [confirmName]="'Add Task'"></app-new-task>
+        } @else {
+            @for(task of selectedTasks; track task.id) {
+                <li><app-task [task]="task" (complete)="onCompleteTask($event)" (edit)="onEditTask($event)"></app-task></li>
+            }
+        }
+    </ul>
+</section>
+
+

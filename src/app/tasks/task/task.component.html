@@ -1,0 +1,13 @@
+
+<article>
+    @if (needEdit){
+        <app-new-task [buttonName]="'Edit Task'" [confirmName]="'Update'" [task]="task()" (closeWindows) = "onCloseForm()" ></app-new-task>
+    }
+    <h2>{{ task().title }}</h2>
+    <time>{{task().dueDate}}</time>
+    <summary>{{task().summary}}</summary>
+    <p class="actions">
+        <button (click)="onEdit()">Edit</button>
+        <button (click)="onComplete()">Complete</button>
+    </p>
+</article>
